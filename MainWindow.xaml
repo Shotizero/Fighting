@@ -9,52 +9,102 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="157*"/>
-            <RowDefinition Height="270*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <MediaElement x:Name="myVideo"
                       Source="C:\Users\akkur\source\repos\Fighting\Materials\Фон.mp4" 
                       Stretch="fill"
                       LoadedBehavior="Manual"
-                      MediaEnded="myVideo_MediaEnded" Grid.RowSpan="2"
+                      MediaEnded="myVideo_MediaEnded"
+                      Grid.RowSpan="6"
+                      Grid.ColumnSpan="6"
          />
-        <Border
-            BorderBrush="Transparent" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Bottom" Grid.RowSpan="2">
-            <Image Source="C:\Users\akkur\source\repos\Fighting\Materials\Scorpion.png"
-                   
-                   />
-        </Border> 
 
-        <Button Width="50" Height="50" Click="seveHeadButton" Margin="100,20,630,88" Style="{StaticResource ButtomSave}"                     
+        <Image Source="C:\Users\akkur\source\repos\Fighting\Materials\Scorpion.png"
+             HorizontalAlignment="Right"
+             VerticalAlignment="Bottom"
+             Grid.RowSpan="4"
+             Grid.Row="1"
+                   />
+
+        <Button Width="50"
+                Height="50"
+                Click="seveHeadButton"
+                Style="{StaticResource ButtonSave}"
+                Grid.Row="1"
         />
-        <Button Style="{StaticResource ButtomSave}" Width="100" Height="100"  Click="seveBodyButton" Margin="0,20,570,-100"/>
+        <Button Style="{StaticResource ButtonSave}"
+                Width="100"
+                Height="100"
+                Click="seveBodyButton"
+                Grid.Column="0"
+                Grid.RowSpan="2"
+                Grid.Row="1"/>
 
-        <Button Style="{StaticResource ButtomSave}" Width="100" Height="100" Click="seveLedsButton" Margin="0,20,570,-400"/>
+        <Button Style="{StaticResource ButtonSave}"
+                Width="100"
+                Height="100"
+                Click="seveLedsButton"
+                Grid.Column="0"
+                Grid.Row="3"/>
 
-        <Border 
-                BorderBrush="Transparent" 
-          BorderThickness="3" 
-          HorizontalAlignment="Right" 
-          VerticalAlignment="Bottom" Grid.RowSpan="2">
-            <Image Source="C:\Users\akkur\source\repos\Fighting\Materials\Subzero.png"
+        <Image Source="C:\Users\akkur\source\repos\Fighting\Materials\Subzero.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Grid.Row="1"
+                   Grid.Column="4"
+                   Grid.RowSpan="5"
                    />
-        </Border>
-
-        <Button Width="50" Height="50" Click="atackHeadButton" Margin="630,20,100,88" Style="{StaticResource ButtomAtack}"                     
+       
+        <Button Width="50"
+                Height="50"
+                Click="atackHeadButton"
+                Style="{StaticResource ButtonAtack}"
+                Grid.Column="3"
+                Grid.Row="1"
 />
-        <Button Style="{StaticResource ButtomAtack}" Width="100" Height="100"  Click="atackBodyButton" Margin="570,20,0,-100"/>
+        <Button Style="{StaticResource ButtonAtack}"
+                Width="100"
+                Height="100"
+                Click="atackBodyButton"
+                Grid.Column="3"
+                Grid.RowSpan="2"
+                Grid.Row="1"/>
 
-        <Button Style="{StaticResource ButtomAtack}" Width="100" Height="100" Click="atackLedsButton" Margin="570,20,0,-400"/>
+        <Button Style="{StaticResource ButtonAtack}"
+                Width="100"
+                Height="100"
+                Click="atackLedsButton"
+                Grid.Column="3"
+                Grid.Row="3"/>
 
-        <Button Width="20" Height="20"
+        <Button     Width="20" Height="20"
                     Content="Exit" IsCancel="True"
                     Click="exitButton"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     />
+
+        <ScrollViewer Grid.RowSpan="2"
+                      Grid.ColumnSpan="2"
+                      Grid.Row="1"
+                      Grid.Column="1">
+            <TextBox
+                     Background="Transparent"
+                     BorderBrush="Red"
+                     IsReadOnly="True"
+                     />
+        </ScrollViewer>
 
 
 

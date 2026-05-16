@@ -69,6 +69,16 @@ namespace Fighting
         {
             Console.WriteLine(result);
         }
+
+        private void healthPlayer(int damage)
+        {
+
+        }
+
+        private void healthEnemy(int damage)
+        {
+
+        }
     }
 
 }

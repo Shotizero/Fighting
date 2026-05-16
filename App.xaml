@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Fighting"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style x:Key="ButtomSave" TargetType="Button">
+        <Style x:Key="ButtonSave" TargetType="Button">
             <Setter Property="Template">
             <Setter.Value>
             <ControlTemplate TargetType="Button">
@@ -18,7 +18,7 @@
              </Setter>
         </Style>
 
-        <Style x:Key="ButtomAtack" TargetType="Button">
+        <Style x:Key="ButtonAtack" TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
