@@ -21,6 +21,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        
         <MediaElement x:Name="myVideo"
                       Source="C:\Users\akkur\source\repos\Fighting\Materials\Фон.mp4" 
                       Stretch="fill"
@@ -36,27 +37,86 @@
              Grid.RowSpan="4"
              Grid.Row="1"
                    />
+        <Grid Grid.ColumnSpan="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
 
-        <Button Width="50"
-                Height="50"
-                Click="seveHeadButton"
-                Style="{StaticResource ButtonSave}"
-                Grid.Row="1"
-        />
-        <Button Style="{StaticResource ButtonSave}"
-                Width="100"
-                Height="100"
-                Click="seveBodyButton"
-                Grid.Column="0"
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+
+            <ProgressBar x:Name="PlayerHP"
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         Foreground="#FF660000"
+                         Background="Black"
+                         BorderBrush="Transparent"
+                         Minimum="0" Maximum="100" Value="100"/>
+
+            <ProgressBar x:Name="EnemyHP"
+                         Grid.Column="4"
+                         Grid.Row="1"
+                         Foreground="#FF660000"
+                         Background="Black"
+                         BorderBrush="Transparent"
+                         Minimum="0" Maximum="100" Value="100"/>
+
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.RowSpan="3" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button
+                Click="seveButton"
+                Style="{StaticResource Button}"
                 Grid.RowSpan="2"
+                Grid.Column="2"/>
+                
+            </Grid>
+            
+                <Button Style="{StaticResource Button}"
+                Click="seveButton"
+                Grid.Column="1"
+                Grid.RowSpan="1"
                 Grid.Row="1"/>
 
-        <Button Style="{StaticResource ButtonSave}"
-                Width="100"
-                Height="100"
-                Click="seveLedsButton"
-                Grid.Column="0"
-                Grid.Row="3"/>
+                <Button Style="{StaticResource Button}"
+                Click="seveButton"
+                Grid.Column="1"
+                Grid.Row="2"/>
+            
+        </Grid>
 
         <Image Source="C:\Users\akkur\source\repos\Fighting\Materials\Subzero.png"
                    HorizontalAlignment="Left"
@@ -65,49 +125,78 @@
                    Grid.Column="4"
                    Grid.RowSpan="5"
                    />
-       
-        <Button Width="50"
-                Height="50"
-                Click="atackHeadButton"
-                Style="{StaticResource ButtonAtack}"
-                Grid.Column="3"
-                Grid.Row="1"
-/>
-        <Button Style="{StaticResource ButtonAtack}"
-                Width="100"
-                Height="100"
-                Click="atackBodyButton"
-                Grid.Column="3"
+        <Grid Grid.Column="3" Grid.RowSpan="3" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/> 
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>                    
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button 
+                Click="definitions"
+                Tag="Head"
                 Grid.RowSpan="2"
+                Grid.Column="1"
+                Style="{StaticResource Button}"
+                />
+            </Grid>
+
+            <Button
+                Style="{StaticResource Button}"
+                Click="definitions"
+                Tag="Body"
+                Grid.Column="1"
+                Grid.RowSpan="1"
                 Grid.Row="1"/>
 
-        <Button Style="{StaticResource ButtonAtack}"
-                Width="100"
-                Height="100"
-                Click="atackLedsButton"
-                Grid.Column="3"
-                Grid.Row="3"/>
+            <Button Style="{StaticResource Button}"
+                Click="definitions"
+                Tag="Legs"
+                Grid.Column="1"
+                Grid.Row="2"/>
+        </Grid>
 
-        <Button     Width="20" Height="20"
+            <Button     Width="20" Height="20"
                     Content="Exit" IsCancel="True"
                     Click="exitButton"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    />
+                    />        
 
-        <ScrollViewer Grid.RowSpan="2"
-                      Grid.ColumnSpan="2"
-                      Grid.Row="1"
-                      Grid.Column="1">
-            <TextBox
+            <TextBox x:Name="Text"  
                      Background="Transparent"
-                     BorderBrush="Red"
+                     Grid.RowSpan="1"
+                     Grid.ColumnSpan="1"
+                     Grid.Row="3"
+                     Grid.Column="1"
+                     BorderBrush="Transparent"
                      IsReadOnly="True"
-                     />
-        </ScrollViewer>
-
-
-
+                     TextWrapping="Wrap"
+                     Foreground="White"
+                     FontSize="10"
+                     Focusable="False"
+                     IsHitTestVisible="False"
+                     VerticalScrollBarVisibility="Hidden"
+                     VerticalContentAlignment="Bottom"/>     
+        
     </Grid>
-
 </Window>

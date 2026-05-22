@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Fighting
 {
@@ -35,39 +37,40 @@ namespace Fighting
             this.Close();
         }
 
-        private void seveHeadButton(object sender, RoutedEventArgs e)
+        private void seveButton(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Блок головы");
+            MessageBox.Show("Блок");
+        }   
+
+        private void definitions(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            string bodyParts = button.Tag.ToString();
+            
+            Random random = new Random();
+            int damage = random.Next(5, 16);
+            if(random.Next(1, 101) <= 5)
+            {
+                damage = 50;                
+            }
+            healthEnemy(damage);
+            historyFight(bodyParts, damage);
+            endGame();
+        }        
+
+        private void historyFight(string bodyParts, int damage)
+        {
+            if (damage >= 50)
+            {
+                textOutput($"Противник получает КРИТИЧЕСКИЙ урона в {bodyParts}");
+            }else
+                textOutput($"Противник получает {damage} урона в {bodyParts}");              
         }
 
-        private void seveBodyButton(object sender, RoutedEventArgs e)
+        private void textOutput(string text)
         {
-            MessageBox.Show("Блок тела");
-        }
-
-        private void seveLedsButton(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Блок ног");
-        }
-
-        private void atackHeadButton(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Атака головы");
-        }
-
-        private void atackBodyButton(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Атака тела");
-        }
-
-        private void atackLedsButton(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Атака ног");
-        }
-
-        private void historyFight(string result)
-        {
-            Console.WriteLine(result);
+            Text.AppendText(text + Environment.NewLine);
+            Text.ScrollToEnd();
         }
 
         private void healthPlayer(int damage)
@@ -75,10 +78,32 @@ namespace Fighting
 
         }
 
-        private void healthEnemy(int damage)
+        private void blockHP()
         {
 
         }
+
+        private void enemy()
+        {
+            
+        }
+        
+        int healthEn = 100;
+        int healthPl = 100;
+        private void healthEnemy(int damage)
+        {            
+            healthEn = (healthEn - damage);
+            EnemyHP.Value = healthEn;
+        }
+        
+        private void endGame()
+        {
+            if(healthEn <= 0 || healthPl <= 0)
+            {
+                MessageBox.Show("Игра окончена");                
+            }
+        }
+
     }
 
 }
