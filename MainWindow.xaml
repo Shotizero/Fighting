@@ -5,198 +5,265 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fighting"
         mc:Ignorable="d"
+        WindowState="Maximized"
         Title="DockPanel" Height="443" Width="800">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+        <!-- ========== МЕНЮ ========== -->
+        <Border x:Name="MenuBorder" Style="{StaticResource MenuStyles}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        
-        <MediaElement x:Name="myVideo"
-                      Source="C:\Users\akkur\source\repos\Fighting\Materials\Фон.mp4" 
-                      Stretch="fill"
-                      LoadedBehavior="Manual"
-                      MediaEnded="myVideo_MediaEnded"
-                      Grid.RowSpan="6"
-                      Grid.ColumnSpan="6"
-         />
-
-        <Image Source="C:\Users\akkur\source\repos\Fighting\Materials\Scorpion.png"
-             HorizontalAlignment="Right"
-             VerticalAlignment="Bottom"
-             Grid.RowSpan="4"
-             Grid.Row="1"
-                   />
-        <Grid Grid.ColumnSpan="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="5*"/>
-                <RowDefinition/>
-                <RowDefinition Height="5*"/>
-            </Grid.RowDefinitions>
-
-            <ProgressBar x:Name="PlayerHP"
-                         Grid.Column="1"
-                         Grid.Row="1"
-                         Foreground="#FF660000"
-                         Background="Black"
-                         BorderBrush="Transparent"
-                         Minimum="0" Maximum="100" Value="100"/>
-
-            <ProgressBar x:Name="EnemyHP"
-                         Grid.Column="4"
-                         Grid.Row="1"
-                         Foreground="#FF660000"
-                         Background="Black"
-                         BorderBrush="Transparent"
-                         Minimum="0" Maximum="100" Value="100"/>
-
-        </Grid>
-
-        <Grid Grid.Column="0" Grid.RowSpan="3" Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="3*"/>
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
+                <DockPanel Grid.Column="1" Grid.Row="1">
+                    <StackPanel DockPanel.Dock="Bottom"
+                                Orientation="Vertical" 
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Bottom">
+                        <Button x:Name="MenuPlayButton"                         
+                                Content="Играть" 
+                                Style="{StaticResource MenuButtonStyle}"
+                                Click="MenuPlayButton_Click"/>
+                        <Button x:Name="MenuSettingsButton" 
+                                Content="Настройки" 
+                                Style="{StaticResource MenuButtonStyle}"/>
+                        <Button x:Name="MenuOtherButton" 
+                                Content="Шняга" 
+                                Style="{StaticResource MenuButtonStyle}"/>
+                    </StackPanel>
+                </DockPanel>
+
+                <TextBlock Grid.Column="1" 
+                           Grid.Row="2" 
+                           Text="Artem Batyushkin © 2026" 
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"
+                           Style="{StaticResource MenuAboutTextStyle}"/>
+
+                <MediaElement Grid.Column="3" 
+                              Grid.Row="1"
+                              x:Name="MenuAnimation"
+                              Source="C:\Users\akkur\source\repos\Fighting\Materials\Scorpio.mp4"
+                              LoadedBehavior="Manual"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Stretch"
+                              MediaEnded="Menu_MediaEnded"/>
+            </Grid>
+        </Border>
+
+        <!-- ========== ИГРОВОЙ ИНТЕРФЕЙС ========== -->
+        <Grid x:Name="GameGrid" Visibility="Collapsed" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <MediaElement x:Name="myVideo"
+                          Source="C:\Users\akkur\source\repos\Fighting\Materials\Фон.mp4" 
+                          Stretch="fill"
+                          LoadedBehavior="Manual"
+                          MediaEnded="MyVideo_MediaEnded"
+                          Grid.RowSpan="4"
+                          Grid.ColumnSpan="4"/>
+
+            <Image Source="C:\Users\akkur\source\repos\Fighting\Materials\Scorpion.png"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   Grid.RowSpan="4"
+                   Grid.Row="1"/>
+
+            <!-- Полоски здоровья -->
+            <Grid Grid.ColumnSpan="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="4*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button
-                Click="seveButton"
-                Style="{StaticResource Button}"
-                Grid.RowSpan="2"
-                Grid.Column="2"/>
-                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Column="2" Grid.Row="2" x:Name="HealButton"
+                   Click="HealButton_Click">
+                    <Image Source="C:\Users\akkur\source\repos\Fighting\Materials\heart.png"/>
+                </Button>
+
+                <ProgressBar x:Name="PlayerHP"
+                             Grid.Column="1"
+                             Grid.Row="1"
+                             Foreground="#FF660000"
+                             Background="Black"
+                             BorderBrush="Transparent"
+                             Minimum="0" Maximum="100" Value="100"/>
+
+                <ProgressBar x:Name="EnemyHP"
+                             Grid.Column="4"
+                             Grid.Row="1"
+                             Foreground="#FF660000"
+                             Background="Black"
+                             BorderBrush="Transparent"
+                             Minimum="0" Maximum="100" Value="100"/>
             </Grid>
-            
-                <Button Style="{StaticResource Button}"
-                Click="seveButton"
-                Grid.Column="1"
-                Grid.RowSpan="1"
-                Grid.Row="1"/>
 
-                <Button Style="{StaticResource Button}"
-                Click="seveButton"
-                Grid.Column="1"
-                Grid.Row="2"/>
-            
-        </Grid>
+            <!-- Кнопки защиты (игрок) -->
+            <Grid x:Name="Player" Grid.Column="0" Grid.RowSpan="3" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
 
-        <Image Source="C:\Users\akkur\source\repos\Fighting\Materials\Subzero.png"
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="SaveHead"
+                            Click="SeveButton"
+                            Tag="Head"
+                            Style="{StaticResource Button}"
+                            Grid.RowSpan="2"
+                            Grid.Column="2"/>
+                </Grid>
+
+                <Button x:Name="SaveBody"
+                        Style="{StaticResource Button}"
+                        Click="SeveButton" 
+                        Grid.Column="1"
+                        Grid.RowSpan="1"
+                        Grid.Row="1"
+                        Tag="Body"/>
+
+                <Button x:Name="SaveLegs"
+                        Style="{StaticResource Button}"
+                        Click="SeveButton"
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Tag="Legs"/>
+            </Grid>
+
+            <Image Source="C:\Users\akkur\source\repos\Fighting\Materials\Subzero.png"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Bottom"
                    Grid.Row="1"
                    Grid.Column="4"
-                   Grid.RowSpan="5"
-                   />
-        <Grid Grid.Column="3" Grid.RowSpan="3" Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
+                   Grid.RowSpan="5"/>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="3*"/> 
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>                    
-                </Grid.RowDefinitions>
-
+            <!-- Кнопки атаки (враг) -->
+            <Grid x:Name="Enemy" Grid.Column="3" Grid.RowSpan="3" Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button 
-                Click="definitions"
-                Tag="Head"
-                Grid.RowSpan="2"
-                Grid.Column="1"
-                Style="{StaticResource Button}"
-                />
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="AttackHead"
+                            Click="Definitions"
+                            Tag="Head"
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            Style="{StaticResource Button}"/>
+                </Grid>
+
+                <Button x:Name="AttackBody"
+                        Style="{StaticResource Button}"
+                        Click="Definitions"
+                        Tag="Body"
+                        Grid.Column="1"
+                        Grid.RowSpan="1"
+                        Grid.Row="1"/>
+
+                <Button x:Name="AttackLegs"
+                        Style="{StaticResource Button}"
+                        Click="Definitions"
+                        Tag="Legs"
+                        Grid.Column="1"
+                        Grid.Row="2"/>
             </Grid>
 
-            <Button
-                Style="{StaticResource Button}"
-                Click="definitions"
-                Tag="Body"
-                Grid.Column="1"
-                Grid.RowSpan="1"
-                Grid.Row="1"/>
-
-            <Button Style="{StaticResource Button}"
-                Click="definitions"
-                Tag="Legs"
-                Grid.Column="1"
-                Grid.Row="2"/>
-        </Grid>
-
-            <Button     Width="20" Height="20"
+            <!-- Кнопка выхода -->
+            <Button Width="20" Height="20"
                     Content="Exit" IsCancel="True"
-                    Click="exitButton"
+                    Click="ExitButton"
                     HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    />        
+                    VerticalAlignment="Top"/>
 
+            
+
+            <!-- Текст боя -->
             <TextBox x:Name="Text"  
                      Background="Transparent"
                      Grid.RowSpan="1"
-                     Grid.ColumnSpan="1"
+                     Grid.ColumnSpan="2"
                      Grid.Row="3"
                      Grid.Column="1"
                      BorderBrush="Transparent"
                      IsReadOnly="True"
                      TextWrapping="Wrap"
                      Foreground="White"
-                     FontSize="10"
+                     FontSize="18"
                      Focusable="False"
                      IsHitTestVisible="False"
                      VerticalScrollBarVisibility="Hidden"
-                     VerticalContentAlignment="Bottom"/>     
-        
+                     VerticalContentAlignment="Bottom"/>
+        </Grid>
     </Grid>
 </Window>

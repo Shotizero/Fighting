@@ -1,11 +1,12 @@
-C:\Users\akkur\source\repos\Fighting\Fighting\bin\Debug\Fighting.exe.config
-C:\Users\akkur\source\repos\Fighting\Fighting\bin\Debug\Fighting.exe
-C:\Users\akkur\source\repos\Fighting\Fighting\bin\Debug\Fighting.pdb
 C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\Fighting.csproj.AssemblyReference.cache
 C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\MainWindow.g.cs
 C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\App.g.cs
 C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\Fighting_MarkupCompile.cache
 C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\Fighting_MarkupCompile.lref
+C:\Users\akkur\source\repos\Fighting\Fighting\bin\Debug\Fighting.exe.config
+C:\Users\akkur\source\repos\Fighting\Fighting\bin\Debug\Fighting.exe
+C:\Users\akkur\source\repos\Fighting\Fighting\bin\Debug\Fighting.pdb
+C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\App.baml
 C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\MainWindow.baml
 C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\Fighting.g.resources
 C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\Fighting.Properties.Resources.resources
@@ -14,4 +15,3 @@ C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\Fighting.csproj.CoreComp
 C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\Fighting.exe
 C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\Fighting.pdb
 C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\Fighting.exe.config
-C:\Users\akkur\source\repos\Fighting\Fighting\obj\Debug\App.baml
