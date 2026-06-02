@@ -28,6 +28,21 @@ namespace Fighting
             MenuAnimation.Stop();
             GameGrid.Visibility = Visibility.Visible;
             myVideo.Play();
+
+            healthPl = 100;
+            healthEn = 100;
+            PlayerHP.Value = 100;
+            EnemyHP.Value = 100;
+            lastPlayerAttack = "None";
+            lastPlayerBlock = "None";
+            lastEnemyBlock = "None";
+            savedPlayer = "None";
+            playerHealUsed = false;
+            enemyHealUsed = false;
+            HealButton.Visibility = Visibility.Collapsed;
+            EndGameMenu.Visibility = Visibility.Collapsed;
+            Text.Clear();
+
             AttackEnabled(false);
             SaveEnabled(true);
         }
@@ -82,7 +97,7 @@ namespace Fighting
                 damage = 50;
             }
 
-            string name = "You";
+            string name = "Ваш персонаж";
             ChooseEnemyBlock();
             if (bodyParts == currentEnemyBlock)
             {
@@ -132,7 +147,7 @@ namespace Fighting
             {
                 EnemyDamage = 50;
             }
-            string name = "Enemy";
+            string name = "Противник";
             SaveSystem(savedPlayer);
             HistoryFight(AttackZone, EnemyDamage, name);
 
@@ -249,17 +264,63 @@ namespace Fighting
         {
             if (healthEn <= 0 || healthPl <= 0)
             {
-                MessageBox.Show("Игра окончена");
+                if (healthEn <= 0)
+                {
+                    EndGameText.Text = "ПОБЕДА!";
+                }
+                else if (healthPl <= 0)
+                {
+                    EndGameText.Text = "ПОРАЖЕНИЕ!";
+                }
+
+                EndGameMenu.Visibility = Visibility.Visible;
 
                 AttackEnabled(false);
-                Button[] saveButtons = { SaveHead, SaveBody, SaveLegs };
-                foreach (Button btn in saveButtons)
-                {
-                    if (btn != null) btn.IsEnabled = false;
-                }
+                SaveEnabled(false);
+
+                HealButton.Visibility = Visibility.Collapsed;
             }
         }
+        private void PlayAgain_Click(object sender, RoutedEventArgs e)
+        {
+            EndGameMenu.Visibility = Visibility.Collapsed;
 
+            healthPl = 100;
+            healthEn = 100;
+            PlayerHP.Value = 100;
+            EnemyHP.Value = 100;
+
+            lastPlayerAttack = "None";
+            lastPlayerBlock = "None";
+            lastEnemyBlock = "None";
+            savedPlayer = "None";
+            currentEnemyBlock = "None";
+            AttackZone = "None";
+            EnemyDamage = 0;
+            playerHealUsed = false;
+            enemyHealUsed = false;
+            HealButton.Visibility = Visibility.Collapsed;
+
+            Text.Clear();
+
+            AttackEnabled(false);
+            SaveEnabled(true);
+
+            TextOutput("=== НОВЫЙ БОЙ ===");
+        }
+        private void BackToMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            EndGameMenu.Visibility = Visibility.Collapsed;
+
+            GameGrid.Visibility = Visibility.Collapsed;
+
+            MenuBorder.Visibility = Visibility.Visible;
+
+            MenuAnimation.Position = TimeSpan.Zero;
+            MenuAnimation.Play();
+
+            myVideo.Stop();
+        }
         private void ChooseEnemyBlock()
         {
             System.Collections.Generic.List<string> availableBlocks = new System.Collections.Generic.List<string>
