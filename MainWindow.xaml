@@ -9,7 +9,7 @@
         Title="DockPanel" Height="443" Width="800">
 
     <Grid>
-        <!-- ========== МЕНЮ ========== -->
+        <!-- МЕНЮ -->
         <Border x:Name="MenuBorder" Style="{StaticResource MenuStyles}">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -33,10 +33,7 @@
                         <Button x:Name="MenuPlayButton"                         
                                 Content="Играть" 
                                 Style="{StaticResource MenuButtonStyle}"
-                                Click="MenuPlayButton_Click"/>
-                        <Button x:Name="MenuSettingsButton" 
-                                Content="Настройки" 
-                                Style="{StaticResource MenuButtonStyle}"/>
+                                Click="MenuPlayButton_Click"/>                       
                         <Button x:Name="MenuOtherButton" 
                                 Content="Выход" IsCancel="True"
                                 Click="ExitButton"
@@ -63,7 +60,7 @@
             </Grid>
         </Border>
 
-        <!-- ========== ИГРОВОЙ ИНТЕРФЕЙС ========== -->
+        <!-- ИГРОВОЙ ИНТЕРФЕЙС -->
             <Grid x:Name="GameGrid" Visibility="Collapsed" >
                 <Grid.RowDefinitions>
                     <RowDefinition/>

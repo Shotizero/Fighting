@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\akkur\\source\\repos\\Fighting\\Fighting\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9DB1AFAF-62C9-4CCF-A707-2B417A130212}|Fighting.csproj|C:\\Users\\akkur\\source\\repos\\Fighting\\Fighting\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DB1AFAF-62C9-4CCF-A707-2B417A130212}|Fighting.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9DB1AFAF-62C9-4CCF-A707-2B417A130212}|Fighting.csproj|C:\\Users\\akkur\\source\\repos\\Fighting\\Fighting\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9DB1AFAF-62C9-4CCF-A707-2B417A130212}|Fighting.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9DB1AFAF-62C9-4CCF-A707-2B417A130212}|Fighting.csproj|c:\\users\\akkur\\source\\repos\\fighting\\fighting\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{9DB1AFAF-62C9-4CCF-A707-2B417A130212}|Fighting.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{9DB1AFAF-62C9-4CCF-A707-2B417A130212}|Fighting.csproj|c:\\users\\akkur\\source\\repos\\fighting\\fighting\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DB1AFAF-62C9-4CCF-A707-2B417A130212}|Fighting.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9DB1AFAF-62C9-4CCF-A707-2B417A130212}|Fighting.csproj|C:\\Users\\akkur\\source\\repos\\Fighting\\Fighting\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,6 +31,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\akkur\\source\\repos\\Fighting\\Fighting\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\akkur\\source\\repos\\Fighting\\Fighting\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAADsBAAAAAAAAAAAcwG0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T08:12:53.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\akkur\\source\\repos\\Fighting\\Fighting\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -50,19 +63,6 @@
               "RelativeToolTip": "App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-05-11T10:38:09.926Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\akkur\\source\\repos\\Fighting\\Fighting\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\akkur\\source\\repos\\Fighting\\Fighting\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAAwG0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-03T08:12:53.893Z",
               "EditorCaption": ""
             }
           ]
